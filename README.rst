@@ -1,7 +1,9 @@
 ==========
 featureeng
 ==========
+This Package is to help make feature engineering easy. It will consist of many python functions that makes building a Machine Learning model easy.
 
+The project is at the Infant stage but will grow everyday going by 2hrs/day. OnG.
 
 .. image:: https://img.shields.io/pypi/v/featureeng.svg
         :target: https://pypi.python.org/pypi/featureeng
