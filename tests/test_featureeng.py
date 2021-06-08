@@ -30,18 +30,24 @@ def test_get_aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg
 
     Parameters
     ----------
-    data:pd.DataFrame :
+    
+    data:pd.DataFrame : dataframe to calculate FE on
         
-    columns:list :
+    columns:list : list of values to aggregate by (the object datatype)
         
-    agg_list:list :
+    agg_list:list : a list of statistical measure e.g mean, median
         
-    agg_columns:list :
+    agg_columns:list : a list of numerical datatype columns e.g Age, Salary
         
 
     Returns
     -------
+    A dataframe
 
     """
 
     return data
+
+def test_frequency_encode(data:pd.DataFrame, column_name:str, output_column_name:str)->pd.Series:
+
+    return pd.Series
