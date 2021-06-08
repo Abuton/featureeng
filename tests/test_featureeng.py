@@ -50,4 +50,21 @@ def test_get_aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg
 
 def test_frequency_encode(data:pd.DataFrame, column_name:str, output_column_name:str)->pd.Series:
 
+    """
+
+    Parameters
+    ----------
+    data:pd.DataFrame : dataframe with the column to perform the frequency encoding on
+        
+    column_name:str : column name to apply frequency encode on
+        
+    output_column_name:str : new column name that will be created
+        
+
+    Returns
+    -------
+    A pandas Series of encoded column
+
+    """
+
     return pd.Series
