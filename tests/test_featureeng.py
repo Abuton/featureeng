@@ -4,27 +4,11 @@
 
 import pytest
 
-
+import pandas as pd
 from featureeng import featureeng
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-    
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
+@pytest.mark.xfail(reason ="Being Lazy, test_aggs_by_columns() has not yet been implemented")
 def test_aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg_columns:list)->pd.DataFrame:
     """
 
@@ -46,25 +30,12 @@ def test_aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg_col
 
     """
 
-    return data
+    pass
 
-def test_frequency_encode(data:pd.DataFrame, column_name:str, output_column_name:str)->pd.Series:
+def test_frequency_encode(data, column_name):
 
-    """
-
-    Parameters
-    ----------
-    data:pd.DataFrame : dataframe with the column to perform the frequency encoding on
-        
-    column_name:str : column name to apply frequency encode on
-        
-    output_column_name:str : new column name that will be created
-        
-
-    Returns
-    -------
-    A pandas Series of encoded column
-
-    """
+    expected_column_name = 'test_column'
+    expected_data = pd.DataFrame(data=[[2,3,4,4], [5,6,7,7]], columns=[expected_column_name, 'column_two'])
+    assert type(featureeng.frequency_encode(data=expected_data, column_name=expected_column_name)) == pd.Series, "Not Compatible"
 
     return pd.Series

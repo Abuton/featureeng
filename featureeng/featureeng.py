@@ -24,10 +24,9 @@ def aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg_columns:
         for i in agg_list:
             for j in agg_cols:
                 data[cols+'_'+j+'_'+i] = data.groupby([cols])[j].transform(i)
+    return data
 
-	return data
-
-def frequency_encode(data:pd.DataFrame, column_name:str, output_column_name:str)->pd.Series:
+def frequency_encode(data:pd.DataFrame, column_name:str)->pd.Series:
     """
 
     Parameters
@@ -46,7 +45,7 @@ def frequency_encode(data:pd.DataFrame, column_name:str, output_column_name:str)
     """
 
     freq_enc = (data.groupby(column_name).size()) / len(data)
-    data[output_column_name] = data[column_name].apply(lambda x : freq_enc[x])
+    data['encoded_'+column_name] = data[column_name].apply(lambda x : freq_enc[x])
 
     return data[output_column_name]
 
