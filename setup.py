@@ -10,7 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements_dev = ['pandas>=1.1.0', 'numpy>=1.19.0', ]
 
 test_requirements = ['pytest>=3', ]
 
@@ -29,7 +29,7 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description="A bunch of functions to enable and make FE easy when building Machine Learning Models",
-    install_requires=requirements,
+    install_requires=requirements_dev,
     license="BSD license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,

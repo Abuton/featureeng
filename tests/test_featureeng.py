@@ -6,36 +6,43 @@ import pytest
 
 import pandas as pd
 from featureeng import featureeng
+from numpy.testing import assert_almost_equal, assert_equal
 
 
-@pytest.mark.xfail(reason ="Being Lazy, test_aggs_by_columns() has not yet been implemented")
-def test_aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg_columns:list)->pd.DataFrame:
-    """
+# @pytest.mark.xfail(reason ="Being Lazy, test_aggs_by_columns() has not yet been implemented")
+def test_aggs_by_columns():
 
-    Parameters
-    ----------
-    
-    data:pd.DataFrame : dataframe to calculate FE on
-        
-    columns:list : list of values to aggregate by (the object datatype)
-        
-    agg_list:list : a list of statistical measure e.g mean, median
-        
-    agg_columns:list : a list of numerical datatype columns e.g Age, Salary
-        
+    expected_data = pd.DataFrame()
+    expected_columns = []
+    expected_agg_list = []
+    expected_agg_cols = []
 
-    Returns
-    -------
-    A dataframe
+    assert isinstance(expected_data, pd.DataFrame), "Expected Value = DataFrame"
+    assert isinstance(expected_columns, list), "Expected Value = list"
+    assert isinstance(expected_agg_list, list), "Expected Value = list"
+    assert isinstance(expected_agg_cols, list), "Expected Value = list"
 
-    """
-
-    pass
-
-def test_frequency_encode(data, column_name):
+    assert_equal( isinstance(featureeng.aggs_by_columns(expected_data, expected_columns, expected_agg_list, expected_agg_cols), pd.DataFrame), True)
+   
+def test_frequency_encode():
 
     expected_column_name = 'test_column'
-    expected_data = pd.DataFrame(data=[[2,3,4,4], [5,6,7,7]], columns=[expected_column_name, 'column_two'])
+    expected_data = pd.DataFrame(data=[[4,7], [4,7]], columns=[expected_column_name, 'column_two'])
+
+    assert isinstance(expected_column_name, str), "Expected Value = str"
+    assert isinstance(expected_data, pd.DataFrame), "Expected Value = pd.DataFrame"
+
     assert type(featureeng.frequency_encode(data=expected_data, column_name=expected_column_name)) == pd.Series, "Not Compatible"
 
-    return pd.Series
+def test_agg_func():
+    
+    expected_object_column = 'test_column'
+    expected_data = pd.DataFrame(data=[[4,7], [4,7]], columns=[expected_object_column, 'column_two'])
+    expected_agg_list = []
+
+    assert isinstance(expected_data, pd.DataFrame), "Expected Value = pd.DataFrame"
+    assert isinstance(expected_object_column, str), "Expected Value = str"
+    assert isinstance(expected_agg_list, list), "Expected Value = list"
+
+    assert type(featureeng.agg_func(data=expected_data, object_column=expected_object_column)) == pd.DataFrame, "Expected a DataFrame Compatible"
+

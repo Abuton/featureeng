@@ -47,8 +47,7 @@ def frequency_encode(data:pd.DataFrame, column_name:str)->pd.Series:
     freq_enc = (data.groupby(column_name).size()) / len(data)
     data['encoded_'+column_name] = data[column_name].apply(lambda x : freq_enc[x])
 
-    return data[output_column_name]
-
+    return data['encoded_'+column_name]
 
 def agg_func(data:pd.DataFrame, object_column:str, agg_list=['nunique', 'count'])->pd.DataFrame:
     """
@@ -65,7 +64,7 @@ def agg_func(data:pd.DataFrame, object_column:str, agg_list=['nunique', 'count']
 
     Returns
     -------
-    A dataframe with generated colim
+    A dataframe with generated columns
 
     """
     column_name_agg = data.groupby([object_column]).agg({object_column: agg_list})
