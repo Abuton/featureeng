@@ -22,7 +22,7 @@ def aggs_by_columns(data:pd.DataFrame, columns:list, agg_list:list, agg_columns:
     """
     for cols in columns:
         for i in agg_list:
-            for j in agg_cols:
+            for j in agg_columns:
                 data[cols+'_'+j+'_'+i] = data.groupby([cols])[j].transform(i)
     return data
 
