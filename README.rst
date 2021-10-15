@@ -22,7 +22,7 @@ The project is at the Infant stage but will grow everyday.
 
 
 
-A bunch of functions to enable and make FE easy when building Machine Learning Models
+A bunch of functions to enable and make Feature Engineering easy when building Machine Learning Models
 
 
 * Free software: BSD license
@@ -33,6 +33,8 @@ Features
 --------
 
 * TODO
+- Add function for feature generation based on number column
+- 
 
 Credits
 -------
